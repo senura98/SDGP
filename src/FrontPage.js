@@ -47,13 +47,14 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
-        backgroundColor: '#DDDDDD',
+        backgroundColor: '#ED3030',
         padding: 10,
         marginBottom: 10,
         width: 350,
         borderRadius: 25
     },
     buttonText: {
-        fontSize: 20
+        fontSize: 20,
+        color: 'white'
     }
 });

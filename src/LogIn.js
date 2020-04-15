@@ -53,12 +53,13 @@ const styles = StyleSheet.create({
     button: {
         marginTop: 10,
         alignItems: 'center',
-        backgroundColor: '#DDDDDD',
+        backgroundColor: '#ED3030',
         padding: 13,
         marginBottom: 10,
         borderRadius: 30
     },
     buttonText: {
-        fontSize: 20
+        fontSize: 20,
+        color: 'white'
     }
 });
