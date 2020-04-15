@@ -120,14 +120,45 @@ import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import FrontPage from './src/FrontPage.js'
+import LogIn from './src/LogIn';
+import SignUp from './src/SignUp';
+import initialDetails from './src/InitialDetails';
 
-class Main extends Component {
+/*class Main extends Component {
 
     render() {
         return (
             <FrontPage />
         );
     }
+}*/
+
+const stack = createStackNavigator();
+
+function app() {
+    return (
+        <NavigationContainer>
+            <stack.Navigator
+                initialRouteName="FrontPage"
+            >
+                <stack.Screen
+                    name="FrontPage"
+                    component={FrontPage}
+                    options={{headerShown: false}}
+                />
+                <stack.Screen
+                    name="Login"
+                    component={LogIn}
+                    options={{headerShown: false}}
+                />
+                <stack.Screen
+                    name="SignUp"
+                    component={SignUp}
+                    options={{headerShown: false}}
+                />
+            </stack.Navigator>
+        </NavigationContainer>
+    );
 }
 
-export default Main;
+export default app;
