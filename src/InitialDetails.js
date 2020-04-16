@@ -1,19 +1,25 @@
 import * as React from 'react';
 import {Component} from 'react';
 import {useState} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, Button, Image, TextInput, Platform, } from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Button, Image, TextInput, Platform, Alert} from 'react-native';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import StackNavigator from '@react-navigation/stack/src/navigators/createStackNavigator';
-import infoIcon from './Images/info.png';
 import infoIcon2 from './Images/info2.png';
 import dateIcon from './Images/date.png';
 import weightIcon from './Images/weight.png';
 import firstPeriodIcon from './Images/firstPeriod.png';
 import maritalStatusIcon from './Images/status.png';
+import breastFeedingIcon from './Images/Breastfeeding.png';
+import alcoholIcon from './Images/alcohol.png';
+import smokeIcon from './Images/cigarette.png';
+import menstruationIcon from './Images/menstruation.png';
+import medicalHistoryIcon from './Images/medicalHistory.png';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {RadioGroup, RadioButton} from 'react-native-custom-radio-button'
+import {RadioGroup, RadioButton} from 'react-native-custom-radio-button';
+import { TagSelect } from 'react-native-tag-select';
+import {color} from 'react-native-reanimated';
 
 const stack = createStackNavigator();
 
@@ -28,12 +34,6 @@ class initialDetails extends Component {
         this.state = {
             //images: infoIcon, infoIcon2,
         }
-    }
-
-    maritalOnSelect(index, value){
-        this.setState({
-            maritalStatus: this.state.maritalStatus === value
-        })
     }
 
     render() {
@@ -87,6 +87,51 @@ class initialDetails extends Component {
                         component={Question5}
                         options={{
                             title: "5 of 10",
+                            headerStyle: {backgroundColor: '#ED3030'},
+                            headerTintColor: 'white',
+                        }}
+                    />
+                    <stack.Screen
+                        name="Question 6"
+                        component={Question6}
+                        options={{
+                            title: "6 of 10",
+                            headerStyle: {backgroundColor: '#ED3030'},
+                            headerTintColor: 'white',
+                        }}
+                    />
+                    <stack.Screen
+                        name="Question 7"
+                        component={Question7}
+                        options={{
+                            title: "7 of 10",
+                            headerStyle: {backgroundColor: '#ED3030'},
+                            headerTintColor: 'white',
+                        }}
+                    />
+                    <stack.Screen
+                        name="Question 8"
+                        component={Question8}
+                        options={{
+                            title: "8 of 10",
+                            headerStyle: {backgroundColor: '#ED3030'},
+                            headerTintColor: 'white',
+                        }}
+                    />
+                    <stack.Screen
+                        name="Question 9"
+                        component={Question9}
+                        options={{
+                            title: "9 of 10",
+                            headerStyle: {backgroundColor: '#ED3030'},
+                            headerTintColor: 'white',
+                        }}
+                    />
+                    <stack.Screen
+                        name="Question 10"
+                        component={Question10}
+                        options={{
+                            title: "10 of 10",
                             headerStyle: {backgroundColor: '#ED3030'},
                             headerTintColor: 'white',
                         }}
@@ -249,17 +294,93 @@ function Question5({navigation}) {
         <View style={styles.Q2View}>
             <Image source={maritalStatusIcon} style={styles.dateIcon}/>
             <Text style={styles.questionText}>What's your marital status?</Text>
-            <RadioGroup>
-                <RadioButton value={'Married'}>
-                   <Text>Hello</Text>
-                </RadioButton>
-                {/*<RadioButton value={'Live-in relationship'}>*/}
-                {/*    <Text>Live-in relationship</Text>*/}
-                {/*</RadioButton>*/}
-                {/*<RadioButton value={'Single'}>*/}
-                {/*    <Text>Single</Text>*/}
-                {/*</RadioButton>*/}
-            </RadioGroup>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 6')}>
+                <Text style={styles.buttonText}>Married</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 6')}>
+                <Text style={styles.buttonText}>Live-in relationship</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 6')}>
+                <Text style={styles.buttonText}>Single</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+function Question6({navigation}) {
+    return (
+        <View style={styles.Q2View}>
+            <Image source={breastFeedingIcon} style={styles.dateIcon}/>
+            <Text style={styles.questionText}>Have you ever done breastfeeding?</Text>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 7')}>
+                <Text style={styles.buttonText}>Yes</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 7')}>
+                <Text style={styles.buttonText}>No</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+function Question7({navigation}) {
+    return (
+        <View style={styles.Q2View}>
+            <Image source={alcoholIcon} style={styles.dateIcon}/>
+            <Text style={styles.questionText}>Are you an alcoholic?</Text>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 8')}>
+                <Text style={styles.buttonText}>Yes</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 8')}>
+                <Text style={styles.buttonText}>No</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+function Question8({navigation}) {
+    return (
+        <View style={styles.Q2View}>
+            <Image source={smokeIcon} style={styles.dateIcon}/>
+            <Text style={styles.questionText}>Do you smoke?</Text>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 9')}>
+                <Text style={styles.buttonText}>Yes</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 9')}>
+                <Text style={styles.buttonText}>No</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+function Question9({navigation}) {
+    return (
+        <View style={styles.Q2View}>
+            <Image source={menstruationIcon} style={styles.dateIcon}/>
+            <Text style={styles.questionText}>How's your menstrual cycle?</Text>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 10')}>
+                <Text style={styles.buttonText}>Regular</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 10')}>
+                <Text style={styles.buttonText}>Irregular</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 10')}>
+                <Text style={styles.buttonText}>Menopause</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+function Question10({navigation}) {
+    return (
+        <View style={styles.Q2View}>
+            <Image source={medicalHistoryIcon} style={styles.dateIcon}/>
+            <Text style={styles.questionText}>Is there any close relation of yours had breast cancer history?</Text>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 10')}>
+                <Text style={styles.buttonText}>Yes</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 10')}>
+                <Text style={styles.buttonText}>No</Text>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -313,7 +434,7 @@ const styles = StyleSheet.create({
     },
     questionText: {
         textAlign: 'center',
-        fontSize: 25,
+        fontSize: 23,
         marginTop: 10
     },
     datePickerStyle: {
@@ -339,11 +460,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#ED3030',
         padding: 10,
-        marginBottom: 10,
+        //marginBottom: 10,
         width: 350,
         borderRadius: 25,
         alignSelf: 'center',
-        marginTop: 130
+        marginTop: 10
     },
     dateIcon: {
         height:200,
