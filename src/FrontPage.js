@@ -35,11 +35,11 @@ class FrontPage extends Component {
         return (
             <View style={styles.logoView}>
                 <Image source={this.state.images} style={styles.logo} />
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText} onPress={() => this.props.navigation.navigate('SignUp')}>New User</Text>
+                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('SignUp')}>
+                    <Text style={styles.buttonText}>New User</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText} onPress={() => this.props.navigation.navigate('Login')}>Existing User</Text>
+                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Login')}>
+                    <Text style={styles.buttonText}>Existing User</Text>
                 </TouchableOpacity>
                 {/*<Text>{this.state.option}</Text>*/}
             </View>

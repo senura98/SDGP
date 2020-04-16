@@ -122,7 +122,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import FrontPage from './src/FrontPage.js'
 import LogIn from './src/LogIn';
 import SignUp from './src/SignUp';
-import initialDetails from './src/InitialDetails';
+import InitialDetails from './src/InitialDetails';
 
 /*class Main extends Component {
 
@@ -154,6 +154,11 @@ function app() {
                 <stack.Screen
                     name="SignUp"
                     component={SignUp}
+                    options={{headerShown: false}}
+                />
+                <stack.Screen
+                    name="InitialDetails"
+                    component={InitialDetails}
                     options={{headerShown: false}}
                 />
             </stack.Navigator>

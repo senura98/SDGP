@@ -20,7 +20,7 @@ class LogIn extends Component {
                     style={styles.textBox}
                     placeholder = "Password"
                 />
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} >
                     <Text style={styles.buttonText}>LogIn</Text>
                 </TouchableOpacity>
             </View>
