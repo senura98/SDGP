@@ -20,19 +20,22 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import {RadioGroup, RadioButton} from 'react-native-custom-radio-button';
 import { TagSelect } from 'react-native-tag-select';
 import {color} from 'react-native-reanimated';
+import DatePicker from 'react-native-datepicker';
 
 const stack = createStackNavigator();
 
 class initialDetails extends Component {
 
     state = {
-        maritalStatus: null
+        maritalStatus: null,
+        date: null
     }
 
     constructor(props) {
         super(props);
         this.state = {
             //images: infoIcon, infoIcon2,
+            date: {date: "01-01-2001"}
         }
     }
 
@@ -156,9 +159,8 @@ function GatherInfo({navigation}) {
 }
 
 function Question1({navigation}) {
-    //const {date} = this.state;
 
-    const [date, setDate] = useState(new Date(1598051730000));
+    /*const [date, setDate] = useState(new Date(1598051730000));
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
 
@@ -175,17 +177,17 @@ function Question1({navigation}) {
 
     const showDatePicker = () => {
         showMode('date');
-    }
+    }*/
 
     return (
         <View style={styles.Q1View}>
             <Image source={dateIcon} style={styles.dateIcon}/>
             <Text style={styles.questionText}>What is your Date of Birth?</Text>
-            <TouchableOpacity style={styles.dateButton} onPress={showDatePicker}>
+            {/*<TouchableOpacity style={styles.dateButton} onPress={showDatePicker}>
                 <Text style={styles.dateButtonText}>Show Date Picker</Text>
-            </TouchableOpacity>
+            </TouchableOpacity>*/}
 
-            {show && (
+            {/*{show && (
                 <DateTimePicker
                     testID="dateTimePicker"
                     timeZoneOffsetInMinutes={0}
@@ -196,7 +198,7 @@ function Question1({navigation}) {
                     onChange={onChange}
                     maximumDate={new Date()}
                 />
-            )}
+            )}*/}
 
             <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 2')}>
                 <Text style={styles.buttonText}>Next Question</Text>
@@ -298,7 +300,7 @@ function Question5({navigation}) {
                 <Text style={styles.buttonText}>Married</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 6')}>
-                <Text style={styles.buttonText}>Live-in relationship</Text>
+                <Text style={styles.buttonText}>Living together</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 6')}>
                 <Text style={styles.buttonText}>Single</Text>
@@ -356,15 +358,12 @@ function Question9({navigation}) {
     return (
         <View style={styles.Q2View}>
             <Image source={menstruationIcon} style={styles.dateIcon}/>
-            <Text style={styles.questionText}>How's your menstrual cycle?</Text>
+            <Text style={styles.questionText}>Do you have a menstrual cycle?</Text>
             <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 10')}>
-                <Text style={styles.buttonText}>Regular</Text>
+                <Text style={styles.buttonText}>Yes</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 10')}>
-                <Text style={styles.buttonText}>Irregular</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Question 10')}>
-                <Text style={styles.buttonText}>Menopause</Text>
+                <Text style={styles.buttonText}>Yes</Text>
             </TouchableOpacity>
         </View>
     );
