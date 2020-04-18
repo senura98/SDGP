@@ -113,10 +113,10 @@ const styles = StyleSheet.create({
 
 export default App;*/
 
-import * as React from 'react';
+//import * as React from 'react';
 import {Component} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity, Button, Image} from 'react-native';
-import 'react-native-gesture-handler';
+//import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import FrontPage from './src/FrontPage.js'
@@ -133,37 +133,50 @@ import InitialDetails from './src/InitialDetails';
     }
 }*/
 
-const stack = createStackNavigator();
+// const stack = createStackNavigator();
+//
+// function app() {
+//     return (
+//         <NavigationContainer>
+//             <stack.Navigator
+//                 initialRouteName="FrontPage"
+//             >
+//                 <stack.Screen
+//                     name="FrontPage"
+//                     component={FrontPage}
+//                     options={{headerShown: false}}
+//                 />
+//                 <stack.Screen
+//                     name="Login"
+//                     component={LogIn}
+//                     options={{headerShown: false}}
+//                 />
+//                 <stack.Screen
+//                     name="SignUp"
+//                     component={SignUp}
+//                     options={{headerShown: false}}
+//                 />
+//                 <stack.Screen
+//                     name="InitialDetails"
+//                     component={InitialDetails}
+//                     options={{headerShown: false}}
+//                 />
+//             </stack.Navigator>
+//         </NavigationContainer>
+//     );
+// }
+//
+// export default app;
+import React from "react"
+import {createAppContainer} from "react-navigation"
+import {createDrawerNavigator} from 'react-navigation-drawer'
+import { Dimensions} from "react-native";
 
-function app() {
-    return (
-        <NavigationContainer>
-            <stack.Navigator
-                initialRouteName="FrontPage"
-            >
-                <stack.Screen
-                    name="FrontPage"
-                    component={FrontPage}
-                    options={{headerShown: false}}
-                />
-                <stack.Screen
-                    name="Login"
-                    component={LogIn}
-                    options={{headerShown: false}}
-                />
-                <stack.Screen
-                    name="SignUp"
-                    component={SignUp}
-                    options={{headerShown: false}}
-                />
-                <stack.Screen
-                    name="InitialDetails"
-                    component={InitialDetails}
-                    options={{headerShown: false}}
-                />
-            </stack.Navigator>
-        </NavigationContainer>
-    );
-}
+import{ProfileScreen, ActivityScreen} from "./src/Main";
 
-export default app;
+const DrawerNavigator = createDrawerNavigator({
+    ProfileScreen,
+    ActivityScreen
+});
+
+export default createAppContainer(DrawerNavigator);
