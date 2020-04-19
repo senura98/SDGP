@@ -10,5 +10,6 @@ import LogIn from './src/LogIn';
 import SignUp from './src/SignUp';
 import FrontPage from './src/FrontPage';
 import initialDetails from './src/InitialDetails';
+import Profile from "./src/Profile";
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => Profile);
